@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #e5ddd5;
+  height: 100vh;
+}
+
+.app {
+  max-width: 600px;
+  height: 100vh;
+  margin: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #075e54;
+  color: white;
+  padding: 18px;
+}
+
+header h1 {
+  font-size: 22px;
+}
+
+header span {
+  font-size: 13px;
+  color: #d9ffd6;
+}
+
+#messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #efeae2;
+}
+
+.message {
+  max-width: 75%;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.received {
+  background: white;
+  align-self: flex-start;
+}
+
+.sent {
+  background: #d9fdd3;
+  margin-left: auto;
+}
+
+footer {
+  display: flex;
+  padding: 10px;
+  gap: 8px;
+  background: #f0f0f0;
+}
+
+#messageInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 12px 16px;
+  font-size: 15px;
+}
+
+button {
+  border: none;
+  background: #075e54;
+  color: white;
+  padding: 0 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #064e46;
+}
