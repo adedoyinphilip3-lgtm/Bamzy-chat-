@@ -5,7 +5,7 @@ const supabase = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
-function sendMessage() {
+async function sendMessage() {
   const input = document.getElementById("messageInput");
   const messages = document.getElementById("messages");
 
@@ -14,7 +14,20 @@ function sendMessage() {
   if (text === "") {
     return;
   }
+const { data, error } = await supabase
+  .from("messages")
+  .insert([
+    {
+      sender_id: (await supabase.auth.getUser()).data.user?.id,
+      content: text
+    }
+  ]);
 
+if (error) {
+  console.error("Supabase error:", error);
+  alert("Message could not be saved");
+  return;
+}
   const message = document.createElement("div");
   message.classList.add("message", "sent");
   message.textContent = text;
