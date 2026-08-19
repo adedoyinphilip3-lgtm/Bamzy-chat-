@@ -6,6 +6,22 @@ const supabase = window.supabase.createClient(
   SUPABASE_KEY
 );
 async function sendMessage() {
+  async function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password
+  });
+
+  if (error) {
+    alert("Login failed: " + error.message);
+    return;
+  }
+
+  alert("Login successful!");
+  }
   const input = document.getElementById("messageInput");
   const messages = document.getElementById("messages");
 
